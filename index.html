@@ -444,17 +444,9 @@
         </button>
       </form>
 
-      <div class="footer-watermark">
-        Made with <span>Tally</span>
-      </div>
-    </div>
-  </div>
-
   <script>
-    // ----------------------------------------------------
-    // YAHAN APNI GOOGLE APPS SCRIPT KI WEB APP URL PASTE KAREIN:
-    // ----------------------------------------------------
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx.../exec";
+    // Aapki Google Apps Script ki Web App URL yahan daal di gayi hai:
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx7bgIMfUs-NgxJC0JNOSWq_9p2-jGeenL-wB6qQrzVgDnIJAXWR0W73W3hrJ5H4t6A/exec";
 
     // Options selection logic
     function setupSelectableGroup(containerId, hiddenInputId) {
@@ -506,10 +498,12 @@
         alert('Shukriya! Data kamyabi se Google Sheet mein darj ho chuka hai.');
         form.reset();
 
-        // Default inputs wapis set karein
+        // Default inputs reset karein
         document.getElementById('selectedTower').value = 'Tower B';
         document.getElementById('residentStatus').value = '';
         document.querySelectorAll('#statusGroup .option-item').forEach(i => i.classList.remove('selected'));
+        // Tower B ko dobara highlight karein
+        document.querySelector('#towerGroup [data-value="Tower B"]').classList.add('selected');
 
       } catch (error) {
         console.error("Submission Error:", error);
