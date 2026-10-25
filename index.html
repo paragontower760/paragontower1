@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paragon Tower Registration Form</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background-color: #ffffff;
+      color: #2d3748;
+      width: 100%;
+      min-height: 100vh;
+    }
+
+    .form-container {
+      width: 100%;
+      margin: 0;
+      background: #ffffff;
+    }
+
+    .banner {
+      width: 100%;
+      height: 220px;
+      background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.3)), 
+                  url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+      position: relative;
+    }
+
+    .logo-container {
+      position: absolute;
+      bottom: -32px;
+      left: 60px;
+      width: 75px;
+      height: 75px;
+      background: #ffffff;
+      border-radius: 50%;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 4px solid #fff;
+    }
+
+    .logo-container span {
+      font-weight: 800;
+      font-size: 11px;
+      color: #2b6cb0;
+      letter-spacing: 0.5px;
+    }
+
+    .form-content {
+      width: 100%;
+      padding: 50px 60px 40px 60px;
+    }
+
+    h1.title {
+      font-size: 28px;
+      font-weight: 700;
+      color: #1a202c;
+      margin-bottom: 25px;
+    }
+
+    h2.section-heading {
+      font-size: 19px;
+      font-weight: 600;
+      color: #1a202c;
+      margin-top: 35px;
+      margin-bottom: 18px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #edf2f7;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px 30px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px 30px;
+    }
+
+    .full-width {
+      grid-column: 1 / -1;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      font-size: 13.5px;
+      font-weight: 500;
+      color: #4a5568;
+      margin-bottom: 6px;
+    }
+
+    label span.req {
+      color: #e53e3e;
+      margin-left: 2px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 11px 14px;
+      font-size: 14px;
+      border: 1px solid #cbd5e0;
+      border-radius: 6px;
+      outline: none;
+      transition: all 0.2s;
+      background-color: #fff;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    textarea:focus {
+      border-color: #3182ce;
+      box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.15);
+    }
+
+    input[readonly] {
+      background-color: #f7fafc;
+      color: #718096;
+      cursor: not-allowed;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 70px;
+    }
+
+    .option-list {
+      display: flex;
+      flex-direction: row;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .option-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid #cbd5e0;
+      padding: 8px 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      user-select: none;
+      background-color: #fff;
+      font-size: 13.5px;
+      color: #2d3748;
+      transition: all 0.2s ease;
+    }
+
+    .option-item:hover {
+      border-color: #a0aec0;
+      background-color: #f7fafc;
+    }
+
+    .option-item.selected {
+      border-color: #3182ce;
+      background-color: #ebf8ff;
+      color: #2b6cb0;
+      font-weight: 500;
+    }
+
+    .badge-icon {
+      font-size: 10px;
+      background-color: #edf2f7;
+      color: #4a5568;
+      border-radius: 3px;
+      padding: 2px 6px;
+      border: 1px solid #e2e8f0;
+      font-weight: 600;
+    }
+
+    .option-item.selected .badge-icon {
+      background-color: #bee3f8;
+      border-color: #90cdf4;
+      color: #2b6cb0;
+    }
+
+    .notice-box {
+      margin-top: 30px;
+      margin-bottom: 25px;
+      background-color: #fffaf0;
+      border-left: 4px solid #dd6b20;
+      padding: 14px 18px;
+      border-radius: 4px;
+    }
+
+    .notice-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #9c4221;
+      margin-bottom: 5px;
+    }
+
+    .notice-text {
+      font-size: 13.5px;
+      color: #7b341e;
+      line-height: 1.5;
+    }
+
+    .submit-btn {
+      background-color: #1a202c;
+      color: #ffffff;
+      border: none;
+      padding: 12px 28px;
+      font-size: 14.5px;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background-color 0.2s;
+    }
+
+    .submit-btn:hover {
+      background-color: #2d3748;
+    }
+
+    .submit-btn:disabled {
+      background-color: #a0aec0;
+      cursor: not-allowed;
+    }
+
+    .footer-watermark {
+      margin-top: 40px;
+      text-align: right;
+      font-size: 12.5px;
+      color: #a0aec0;
+    }
+
+    .footer-watermark span {
+      font-weight: 600;
+      color: #718096;
+    }
+
+    @media (max-width: 768px) {
+      .banner { height: 160px; }
+      .logo-container { left: 20px; bottom: -25px; width: 60px; height: 60px; }
+      .form-content { padding: 40px 18px 25px 18px; }
+      .grid-2, .grid-3 { grid-template-columns: 1fr; gap: 14px; }
+      .option-list { flex-direction: column; }
+      .option-item { width: 100%; justify-content: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <div class="banner">
+      <div class="logo-container">
+        <span>PARAGON</span>
+      </div>
+    </div>
+
+    <div class="form-content">
+      <h1 class="title">Paragon Tower</h1>
+
+      <form id="paragonForm">
+        <!-- Project Details -->
+        <h2 class="section-heading">Project Details</h2>
+        <div class="grid-2">
+          <div class="form-group">
+            <label>Project Name <span class="req">*</span></label>
+            <input type="text" name="project_name" value="Paragon Tower" readonly>
+          </div>
+          <div class="form-group">
+            <label>Size <span class="req">*</span></label>
+            <input type="text" name="size" placeholder="e.g. 1200 Sq Ft" required>
+          </div>
+          <div class="form-group full-width">
+            <label>Select Tower <span class="req">*</span></label>
+            <div class="option-list" id="towerGroup">
+              <div class="option-item" data-value="Tower A">
+                <span class="badge-icon">A</span>
+                <span>Tower A</span>
+              </div>
+              <div class="option-item selected" data-value="Tower B">
+                <span class="badge-icon">B</span>
+                <span>Tower B</span>
+              </div>
+              <div class="option-item" data-value="Tower C">
+                <span class="badge-icon">C</span>
+                <span>Tower C</span>
+              </div>
+            </div>
+            <input type="hidden" name="selected_tower" id="selectedTower" value="Tower B">
+          </div>
+        </div>
+
+        <!-- Member Details -->
+        <h2 class="section-heading">Member Details</h2>
+        <div class="grid-2">
+          <div class="form-group">
+            <label>Family Member Name #1 <span class="req">*</span></label>
+            <input type="text" name="family_member_name_1" required>
+          </div>
+          <div class="form-group">
+            <label>CNIC #1 <span class="req">*</span></label>
+            <input type="text" name="cnic_1" placeholder="42101-XXXXXXX-X" required>
+          </div>
+          <div class="form-group">
+            <label>Family Member Name #2</label>
+            <input type="text" name="family_member_name_2">
+          </div>
+          <div class="form-group">
+            <label>CNIC #2</label>
+            <input type="text" name="cnic_2" placeholder="42101-XXXXXXX-X">
+          </div>
+          <div class="form-group">
+            <label>Family Member Name #3</label>
+            <input type="text" name="family_member_name_3">
+          </div>
+          <div class="form-group">
+            <label>CNIC #3</label>
+            <input type="text" name="cnic_3" placeholder="42101-XXXXXXX-X">
+          </div>
+          <div class="form-group">
+            <label>Family Member Name #4</label>
+            <input type="text" name="family_member_name_4">
+          </div>
+          <div class="form-group">
+            <label>CNIC #4</label>
+            <input type="text" name="cnic_4" placeholder="42101-XXXXXXX-X">
+          </div>
+          <div class="form-group">
+            <label>Family Member Name #5</label>
+            <input type="text" name="family_member_name_5">
+          </div>
+          <div class="form-group">
+            <label>CNIC #5</label>
+            <input type="text" name="cnic_5" placeholder="42101-XXXXXXX-X">
+          </div>
+        </div>
+
+        <!-- Property Details -->
+        <h2 class="section-heading">Property Details</h2>
+        <div class="grid-2">
+          <div class="form-group">
+            <label>Father Name <span class="req">*</span></label>
+            <input type="text" name="father_name" required>
+          </div>
+          <div class="form-group">
+            <label>CNIC No. <span class="req">*</span></label>
+            <input type="text" name="owner_cnic" placeholder="42101-XXXXXXX-X" required>
+          </div>
+          <div class="form-group full-width">
+            <label>Address <span class="req">*</span></label>
+            <textarea name="address" rows="2" required></textarea>
+          </div>
+          <div class="form-group">
+            <label>Mobile No. <span class="req">*</span></label>
+            <input type="text" name="mobile_no" placeholder="03XXXXXXXXX" required>
+          </div>
+          <div class="form-group">
+            <label>Email Address <span class="req">*</span></label>
+            <input type="email" name="email_address" required>
+          </div>
+        </div>
+
+        <div class="grid-3" style="margin-top: 18px;">
+          <div class="form-group">
+            <label>Tower No. <span class="req">*</span></label>
+            <input type="text" name="tower_no" required>
+          </div>
+          <div class="form-group">
+            <label>Appt No. <span class="req">*</span></label>
+            <input type="text" name="appt_no" required>
+          </div>
+          <div class="form-group">
+            <label>Floor <span class="req">*</span></label>
+            <input type="text" name="floor" required>
+          </div>
+        </div>
+
+        <div class="grid-2" style="margin-top: 18px;">
+          <div class="form-group">
+            <label>Resident Status <span class="req">*</span></label>
+            <div class="option-list" id="statusGroup">
+              <div class="option-item" data-value="Owner">
+                <span class="badge-icon">A</span>
+                <span>Owner</span>
+              </div>
+              <div class="option-item" data-value="Tenant">
+                <span class="badge-icon">B</span>
+                <span>Tenant</span>
+              </div>
+            </div>
+            <input type="hidden" name="resident_status" id="residentStatus" value="">
+          </div>
+          <div class="form-group">
+            <label>Property Type <span class="req">*</span></label>
+            <input type="text" name="property_type" placeholder="e.g. 2 Bed DD" required>
+          </div>
+        </div>
+
+        <!-- Transport Details -->
+        <h2 class="section-heading">Transport Details</h2>
+        <div class="grid-2">
+          <div class="form-group">
+            <label>Vehicle Detail #1</label>
+            <input type="text" name="vehicle_detail_1" placeholder="Car model / Reg No.">
+          </div>
+          <div class="form-group">
+            <label>Vehicle Detail #2</label>
+            <input type="text" name="vehicle_detail_2" placeholder="Car model / Reg No.">
+          </div>
+          <div class="form-group">
+            <label>Bike Detail #1</label>
+            <input type="text" name="bike_detail_1" placeholder="Bike model / Reg No.">
+          </div>
+          <div class="form-group">
+            <label>Bike Detail #2</label>
+            <input type="text" name="bike_detail_2" placeholder="Bike model / Reg No.">
+          </div>
+        </div>
+
+        <!-- Notice & Submission -->
+        <div class="notice-box">
+          <div class="notice-title">Important Notice</div>
+          <p class="notice-text">
+            For processing of RFID cards, a file for each individual will be created in CRM. The charge for each file is Rs. 20,000/-
+          </p>
+        </div>
+
+        <button type="submit" id="submitBtn" class="submit-btn">
+          Submit <span>&rarr;</span>
+        </button>
+      </form>
+
+      <div class="footer-watermark">
+        Made with <span>Tally</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ----------------------------------------------------
+    // YAHAN APNI GOOGLE APPS SCRIPT KI WEB APP URL PASTE KAREIN:
+    // ----------------------------------------------------
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx.../exec";
+
+    // Options selection logic
+    function setupSelectableGroup(containerId, hiddenInputId) {
+      const container = document.getElementById(containerId);
+      const hiddenInput = document.getElementById(hiddenInputId);
+      const items = container.querySelectorAll('.option-item');
+
+      items.forEach(item => {
+        item.addEventListener('click', () => {
+          items.forEach(i => i.classList.remove('selected'));
+          item.classList.add('selected');
+          hiddenInput.value = item.getAttribute('data-value');
+        });
+      });
+    }
+
+    setupSelectableGroup('towerGroup', 'selectedTower');
+    setupSelectableGroup('statusGroup', 'residentStatus');
+
+    // Form Submit Handler
+    const form = document.getElementById('paragonForm');
+    const submitBtn = document.getElementById('submitBtn');
+
+    form.addEventListener('submit', async function (event) {
+      event.preventDefault();
+
+      const statusValue = document.getElementById('residentStatus').value;
+      if (!statusValue) {
+        alert('Meharbani farma kar "Resident Status" (Owner ya Tenant) zaroor muntakhib karein.');
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Submitting...';
+
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+
+      try {
+        await fetch(SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        });
+
+        alert('Shukriya! Data kamyabi se Google Sheet mein darj ho chuka hai.');
+        form.reset();
+
+        // Default inputs wapis set karein
+        document.getElementById('selectedTower').value = 'Tower B';
+        document.getElementById('residentStatus').value = '';
+        document.querySelectorAll('#statusGroup .option-item').forEach(i => i.classList.remove('selected'));
+
+      } catch (error) {
+        console.error("Submission Error:", error);
+        alert('Data submit karne mein masla aaya hai. Barah-e-karam dobara koshish karein.');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'Submit <span>&rarr;</span>';
+      }
+    });
+  </script>
+</body>
+</html>
