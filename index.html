@@ -92,10 +92,10 @@
     }
 
     .logo-container img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Yeh logo ko bina kate pura fit karega */
+}
 
     .logo-container span {
       font-weight: 800;
@@ -511,11 +511,21 @@
       }
 
       .logo-container {
-        left: 20px;
-        bottom: -25px;
-        width: 60px;
-        height: 60px;
-      }
+  position: absolute;
+  bottom: -32px;
+  left: 60px;
+  width: 80px;         /* Size thora sa barha diya hai */
+  height: 80px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid #fff;
+  overflow: hidden;
+  padding: 6px;        /* Logo ko kinaron se bachane ke liye */
+}
 
       .form-content {
         padding: 40px 18px 25px 18px;
@@ -1170,4 +1180,4 @@
     });
   </script>
 </body>
-</html>
+</htm
