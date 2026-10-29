@@ -604,68 +604,23 @@
           </div>
         </div>
 
-        <!-- ================= Member Details ================= -->
-        <h2 class="section-heading">Member Details</h2>
-
-        <div class="grid-2">
-          <div class="form-group">
-            <label>Family Member Name #1</label>
-            <input type="text" name="family_member_name_1">
-          </div>
-          <div class="form-group">
-            <label>CNIC #1</label>
-            <input type="text" name="cnic_1" placeholder="42101-XXXXXXX-X">
-          </div>
-
-          <div class="form-group">
-            <label>Family Member Name #2</label>
-            <input type="text" name="family_member_name_2">
-          </div>
-          <div class="form-group">
-            <label>CNIC #2</label>
-            <input type="text" name="cnic_2" placeholder="42101-XXXXXXX-X">
-          </div>
-
-          <div class="form-group">
-            <label>Family Member Name #3</label>
-            <input type="text" name="family_member_name_3">
-          </div>
-          <div class="form-group">
-            <label>CNIC #3</label>
-            <input type="text" name="cnic_3" placeholder="42101-XXXXXXX-X">
-          </div>
-
-          <div class="form-group">
-            <label>Family Member Name #4</label>
-            <input type="text" name="family_member_name_4">
-          </div>
-          <div class="form-group">
-            <label>CNIC #4</label>
-            <input type="text" name="cnic_4" placeholder="42101-XXXXXXX-X">
-          </div>
-
-          <div class="form-group">
-            <label>Family Member Name #5</label>
-            <input type="text" name="family_member_name_5">
-          </div>
-          <div class="form-group">
-            <label>CNIC #5</label>
-            <input type="text" name="cnic_5" placeholder="42101-XXXXXXX-X">
-          </div>
-        </div>
-
-        <!-- ================= Property Details ================= -->
+        <!-- ================= Owner Details ================= -->
         <h2 class="section-heading">Owner Details</h2>
 
         <div class="grid-2">
           <div class="form-group">
-            <label>Father Name</label>
-            <input type="text" name="father_name">
+            <label>Owner Name</label>
+            <input type="text" name="owner_name" placeholder="Enter owner name">
           </div>
 
           <div class="form-group">
             <label>CNIC No.</label>
             <input type="text" name="owner_cnic" placeholder="42101-XXXXXXX-X">
+          </div>
+
+          <div class="form-group full-width">
+            <label>Father/Husband Name</label>
+            <input type="text" name="father_husband_name" placeholder="Enter father or husband name">
           </div>
 
           <div class="form-group full-width">
@@ -683,6 +638,9 @@
             <input type="email" name="email_address">
           </div>
         </div>
+
+        <!-- ================= Property Details ================= -->
+        <h2 class="section-heading">Property Details</h2>
 
         <div class="grid-3" style="margin-top: 18px;">
           <div class="form-group">
@@ -1121,20 +1079,12 @@ IBAN : PAK31FAYS 3399 3010 0000 2279
         "Size": item.size || "",
         "Resident Status": item.resident_status || "",
         "Property Type": item.property_type || "",
-        "Father Name": item.father_name || "",
+      "Owner Name": item.owner_name || "",
         "CNIC No": item.owner_cnic || "",
+        "Father/Husband Name": item.father_husband_name || "",
         "Mobile No": item.mobile_no || "",
         "Email Address": item.email_address || "",
         "Address": item.address || "",
-        "Family Member 1": item.family_member_name_1 || "",
-        "CNIC 1": item.cnic_1 || "",
-        "Family Member 2": item.family_member_name_2 || "",
-        "CNIC 2": item.cnic_2 || "",
-        "Family Member 3": item.family_member_name_3 || "",
-        "CNIC 3": item.cnic_3 || "",
-        "Family Member 4": item.family_member_name_4 || "",
-        "CNIC 4": item.cnic_4 || "",
-        "Family Member 5": item.family_member_name_5 || "",
       }));
 
       // Generate worksheet & workbook using SheetJS
@@ -1154,4 +1104,4 @@ IBAN : PAK31FAYS 3399 3010 0000 2279
     });
   </script>
 </body>
-</htm
+</html>
